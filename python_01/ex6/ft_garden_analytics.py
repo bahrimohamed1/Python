@@ -1,5 +1,7 @@
 """Garden analytics platform demo for exercise 6."""
 
+from __future__ import annotations
+
 
 class Plant:
     """Base plant with common attributes."""
@@ -90,7 +92,7 @@ class GardenManager:
         return height >= 0
 
     @classmethod
-    def create_garden_network(cls, owners: list[str]) -> list["GardenManager"]:
+    def create_garden_network(cls, owners: list[str]) -> list[GardenManager]:
         """Create managers for all provided owners."""
         return [cls(owner) for owner in owners]
 
