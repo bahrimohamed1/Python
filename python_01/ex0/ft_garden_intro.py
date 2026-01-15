@@ -1,4 +1,5 @@
 def display_plant_info():
+    """Display sample plant information."""
     name = "Rose"
     height = 25
     age = 30
