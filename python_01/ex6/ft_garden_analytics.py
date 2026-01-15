@@ -179,10 +179,11 @@ class GardenManager:
                 str: A string containing total plant count and average height,
                      or a message if the garden is empty.
             """
+            if not plants:
+                return "No plants in garden"
             total_height = sum(plant._height for plant in plants)
             avg_height = int(total_height / len(plants))
-            return ("No plants in garden" if not plants else
-                    f"Total plants in garden: {len(plants)}\n"
+            return (f"Total plants in garden: {len(plants)}\n"
                     f"Average height of plants: {avg_height}")
 
 
