@@ -1,5 +1,20 @@
 class Plant:
+    """A class representing a plant with basic attributes.
+    
+    Attributes:
+        name (str): The name of the plant.
+        height (int): The height of the plant in centimeters.
+        age (int): The age of the plant in days.
+    """
+    
     def __init__(self, name: str, height: int, age: int) -> None:
+        """Initialize a Plant instance.
+        
+        Args:
+            name (str): The name of the plant.
+            height (int): The height of the plant in centimeters.
+            age (int): The age of the plant in days.
+        """
         self.name = name
         self.height = height
         self.age = age

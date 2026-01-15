@@ -1,4 +1,9 @@
 def display_plant_info():
+    """Display information about a plant in the garden.
+    
+    This function prints formatted information about a Rose plant
+    including its name, height in centimeters, and age in days.
+    """
     name = "Rose"
     height = 25
     age = 30
