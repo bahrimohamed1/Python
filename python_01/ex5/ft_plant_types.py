@@ -1,38 +1,113 @@
 class Plant:
+    """Base class representing a plant with basic attributes.
+    
+    Attributes:
+        name (str): The name of the plant (capitalized).
+        height (int): The height of the plant in centimeters.
+        age (int): The age of the plant in days.
+    """
+    
     def __init__(self, name: str, height: int, age: int) -> None:
+        """Initialize a Plant instance.
+        
+        Args:
+            name (str): The name of the plant (will be capitalized).
+            height (int): The height of the plant in centimeters.
+            age (int): The age of the plant in days.
+        """
         self.name = name.capitalize()
         self.height = height
         self.age = age
 
     def get_info(self) -> str:
+        """Get formatted information about the plant.
+        
+        Returns:
+            str: A string containing the plant's name, height, and age.
+        """
         return f"\n{self.name}: {self.height}cm, {self.age} days"
 
 
 class Flower(Plant):
+    """A class representing a flowering plant.
+    
+    Inherits from Plant and adds color attribute and blooming capability.
+    
+    Attributes:
+        name (str): The name of the flower (capitalized).
+        height (int): The height of the flower in centimeters.
+        age (int): The age of the flower in days.
+        color (str): The color of the flower (lowercase).
+    """
+    
     def __init__(self, name: str, height: int, age: int, color: str) -> None:
+        """Initialize a Flower instance.
+        
+        Args:
+            name (str): The name of the flower.
+            height (int): The height of the flower in centimeters.
+            age (int): The age of the flower in days.
+            color (str): The color of the flower (will be converted to lowercase).
+        """
         super().__init__(name, height, age)
         self.color = color.lower()
 
     def bloom(self) -> None:
+        """Make the flower bloom and display a message."""
         print(f"{self.name} is blooming beautifully!")
 
     def get_info(self) -> str:
+        """Get formatted information about the flower.
+        
+        Returns:
+            str: A string containing the flower's name, height, age, and color.
+        """
         return f"\n{self.name} (Flower): {self.height}cm, " \
             f"{self.age} days, {self.color} color"
 
 
 class Tree(Plant):
+    """A class representing a tree.
+    
+    Inherits from Plant and adds trunk diameter and shade calculation.
+    
+    Attributes:
+        name (str): The name of the tree (capitalized).
+        height (int): The height of the tree in centimeters.
+        age (int): The age of the tree in days.
+        trunk_diameter (int): The diameter of the tree trunk in centimeters.
+    """
+    
     def __init__(self, name: str, height: int, age: int,
                  trunk_diameter: int) -> None:
+        """Initialize a Tree instance.
+        
+        Args:
+            name (str): The name of the tree.
+            height (int): The height of the tree in centimeters.
+            age (int): The age of the tree in days.
+            trunk_diameter (int): The diameter of the tree trunk in centimeters.
+        """
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
 
     def produce_shade(self) -> int:
+        """Calculate the shade area produced by the tree.
+        
+        Returns:
+            int: The area of shade in square meters.
+        """
         height_meters = self.height / 100
         area = 3.14 * (height_meters ** 2)
         return int(area)
 
     def get_info(self) -> str:
+        """Get formatted information about the tree.
+        
+        Returns:
+            str: A string containing the tree's name, height, age, 
+                 trunk diameter, and shade area.
+        """
         area = self.produce_shade()
         return f"\n{self.name} (Tree): {self.height}cm, " \
             f"{self.age} days, {self.trunk_diameter}cm diameter\n" \
@@ -40,13 +115,40 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
+    """A class representing a vegetable plant.
+    
+    Inherits from Plant and adds harvest season and nutritional information.
+    
+    Attributes:
+        name (str): The name of the vegetable (capitalized).
+        height (int): The height of the vegetable plant in centimeters.
+        age (int): The age of the vegetable plant in days.
+        harvest_season (str): The season when the vegetable is harvested (lowercase).
+        nutritional_value (str): The primary vitamin content (uppercase).
+    """
+    
     def __init__(self, name: str, height: int, age: int,
                  harvest_season: str, nutritional_value: str) -> None:
+        """Initialize a Vegetable instance.
+        
+        Args:
+            name (str): The name of the vegetable.
+            height (int): The height of the vegetable plant in centimeters.
+            age (int): The age of the vegetable plant in days.
+            harvest_season (str): The harvest season (will be converted to lowercase).
+            nutritional_value (str): The primary vitamin (will be converted to uppercase).
+        """
         super().__init__(name, height, age)
         self.harvest_season = harvest_season.lower()
         self.nutritional_value = nutritional_value.upper()
 
     def get_info(self) -> str:
+        """Get formatted information about the vegetable.
+        
+        Returns:
+            str: A string containing the vegetable's name, height, age,
+                 harvest season, and nutritional value.
+        """
         return f"\n{self.name} (Vegetable): {self.height}cm, " \
             f"{self.age} days, {self.harvest_season} harvest\n" \
             f"{self.name} is rich in vitamin {self.nutritional_value}"
