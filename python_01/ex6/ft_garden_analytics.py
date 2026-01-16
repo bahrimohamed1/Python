@@ -1,10 +1,5 @@
 class Plant:
-    """Base class representing a plant with growth capability.
-    
-    Attributes:
-        name (str): The name of the plant (title case).
-        _height (int): The private height of the plant in centimeters.
-    """
+    """Base class representing a plant with growth capability."""
     
     def __init__(self, name: str, height: int) -> None:
         """Initialize a Plant instance.
@@ -49,13 +44,7 @@ class Plant:
 class FloweringPlant(Plant):
     """A class representing a flowering plant.
     
-    Inherits from Plant and adds color attribute.
-    
-    Attributes:
-        name (str): The name of the flowering plant (title case).
-        _height (int): The private height of the plant in centimeters.
-        color (str): The color of the flowers.
-    """
+    Inherits from Plant and adds color attribute."""
     
     def __init__(self, name: str, height: int, color: str) -> None:
         """Initialize a FloweringPlant instance.
@@ -80,14 +69,7 @@ class FloweringPlant(Plant):
 class PrizeFlower(FloweringPlant):
     """A class representing a prize-winning flowering plant.
     
-    Inherits from FloweringPlant and adds prize points.
-    
-    Attributes:
-        name (str): The name of the prize flower (title case).
-        _height (int): The private height of the plant in centimeters.
-        color (str): The color of the flowers.
-        prize (int): The number of prize points awarded.
-    """
+    Inherits from FloweringPlant and adds prize points."""
     
     def __init__(self, name: str, height: int, color: str, prize: int) -> None:
         """Initialize a PrizeFlower instance.
@@ -115,13 +97,7 @@ class GardenManager:
     """A class for managing a garden of plants.
     
     This class tracks plants in a garden and provides management functionality
-    including adding plants, growing all plants, and tracking statistics.
-    
-    Attributes:
-        count_managers (int): Class variable tracking the total number of managers.
-        name (str): The name of the garden manager (capitalized).
-        plants (list): List of Plant objects in the manager's garden.
-    """
+    including adding plants, growing all plants, and tracking statistics."""
     
     count_managers = 0
 

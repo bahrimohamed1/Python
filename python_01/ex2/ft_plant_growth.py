@@ -1,12 +1,5 @@
 class Plant:
-    """A class representing a plant with growth and aging capabilities.
-    
-    Attributes:
-        name (str): The name of the plant.
-        height (int): The current height of the plant in centimeters.
-        age (int): The age of the plant in days.
-        initial_height (int): The initial height of the plant for tracking growth.
-    """
+    """A class representing a plant with growth and aging capabilities."""
     
     def __init__(self, name: str, height: int, age: int) -> None:
         """Initialize a Plant instance.
