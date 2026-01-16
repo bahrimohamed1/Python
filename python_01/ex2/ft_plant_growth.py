@@ -1,9 +1,9 @@
 class Plant:
     """A class representing a plant with growth and aging capabilities."""
-    
+
     def __init__(self, name: str, height: int, age: int) -> None:
         """Initialize a Plant instance.
-        
+
         Args:
             name (str): The name of the plant.
             height (int): The initial height of the plant in centimeters.
@@ -16,9 +16,10 @@ class Plant:
 
     def grow(self, amount: int) -> None:
         """Increase the plant's height by a specified amount.
-        
+
         Args:
-            amount (int): The amount to increase the plant's height in centimeters.
+            amount (int): The amount to increase
+                            the plant's height in centimeters.
         """
         self.height += amount
 
@@ -28,7 +29,7 @@ class Plant:
 
     def get_info(self) -> str:
         """Get formatted information about the plant.
-        
+
         Returns:
             str: A string containing the plant's name, height, and age.
         """

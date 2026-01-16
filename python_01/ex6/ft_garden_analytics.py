@@ -1,11 +1,11 @@
 class Plant:
     """Base class representing a plant with growth capability."""
-    
+
     def __init__(self, name: str, height: int) -> None:
         """Initialize a Plant instance.
-        
+
         Args:
-            name (str): The name of the plant (will be converted to title case).
+            name (str): The name of the plant.
             height (int): The initial height of the plant in centimeters.
         """
         self.name = name.title()
@@ -13,7 +13,7 @@ class Plant:
 
     def grow(self) -> str:
         """Increase the plant's height by 1 centimeter.
-        
+
         Returns:
             str: A message indicating the plant grew.
         """
@@ -22,7 +22,7 @@ class Plant:
 
     def get_info(self) -> str:
         """Get formatted information about the plant.
-        
+
         Returns:
             str: A string containing the plant's name and height.
         """
@@ -31,10 +31,10 @@ class Plant:
     @staticmethod
     def validate_height(height: int) -> bool:
         """Validate that a height value is positive.
-        
+
         Args:
             height (int): The height value to validate.
-            
+
         Returns:
             bool: True if height is greater than 0, False otherwise.
         """
@@ -43,12 +43,12 @@ class Plant:
 
 class FloweringPlant(Plant):
     """A class representing a flowering plant.
-    
+
     Inherits from Plant and adds color attribute."""
-    
+
     def __init__(self, name: str, height: int, color: str) -> None:
         """Initialize a FloweringPlant instance.
-        
+
         Args:
             name (str): The name of the flowering plant.
             height (int): The initial height of the plant in centimeters.
@@ -59,21 +59,22 @@ class FloweringPlant(Plant):
 
     def get_info(self) -> str:
         """Get formatted information about the flowering plant.
-        
+
         Returns:
-            str: A string containing the plant's name, height, color, and bloom status.
+            str: A string containing the plant's name, height, color,
+                and bloom status.
         """
         return f"{super().get_info()}, {self.color} flowers (blooming)"
 
 
 class PrizeFlower(FloweringPlant):
     """A class representing a prize-winning flowering plant.
-    
+
     Inherits from FloweringPlant and adds prize points."""
-    
+
     def __init__(self, name: str, height: int, color: str, prize: int) -> None:
         """Initialize a PrizeFlower instance.
-        
+
         Args:
             name (str): The name of the prize flower.
             height (int): The initial height of the plant in centimeters.
@@ -85,9 +86,9 @@ class PrizeFlower(FloweringPlant):
 
     def get_info(self) -> str:
         """Get formatted information about the prize flower.
-        
+
         Returns:
-            str: A string containing the plant's name, height, color, 
+            str: A string containing the plant's name, height, color,
                  bloom status, and prize points.
         """
         return f"{super().get_info()}, Prize points: {self.prize}"
@@ -95,15 +96,15 @@ class PrizeFlower(FloweringPlant):
 
 class GardenManager:
     """A class for managing a garden of plants.
-    
+
     This class tracks plants in a garden and provides management functionality
     including adding plants, growing all plants, and tracking statistics."""
-    
+
     count_managers = 0
 
     def __init__(self, name: str) -> None:
         """Initialize a GardenManager instance.
-        
+
         Args:
             name (str): The name of the garden manager (will be capitalized).
         """
@@ -113,10 +114,10 @@ class GardenManager:
 
     def add_plant(self, plant: Plant) -> str:
         """Add a plant to the manager's garden.
-        
+
         Args:
             plant (Plant): The plant to add to the garden.
-            
+
         Returns:
             str: A confirmation message indicating the plant was added.
         """
@@ -126,9 +127,10 @@ class GardenManager:
     @classmethod
     def create_garden_network(cls) -> str:
         """Create and display the garden network system information.
-        
+
         Returns:
-            str: A message showing the network status and total number of managers.
+            str: A message showing the network status
+                    and total number of managers.
         """
         return f"=== Garden Network System Active ===\n" \
             f"=== Total managers: {cls.count_managers} ==="
@@ -141,16 +143,16 @@ class GardenManager:
 
     class GardenStats:
         """Nested class for calculating and displaying garden statistics.
-        
+
         This class provides methods to analyze plants in a garden.
         """
-        
+
         def display_stats(self, plants: list) -> str:
             """Calculate and display statistics for a list of plants.
-            
+
             Args:
                 plants (list): A list of Plant objects to analyze.
-                
+
             Returns:
                 str: A string containing total plant count and average height,
                      or a message if the garden is empty.
@@ -165,10 +167,10 @@ class GardenManager:
 
 def water_plant(plant: Plant):
     """Non-member utility function to water a plant.
-    
+
     Args:
         plant (Plant): The plant to be watered.
-        
+
     Returns:
         str: A message indicating the plant is being watered.
     """

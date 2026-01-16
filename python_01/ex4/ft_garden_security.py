@@ -1,12 +1,12 @@
 class SecurePlant:
     """A class representing a plant with secure attribute access.
-    
+
     This class uses private attributes with validation to ensure
     that only valid values are set for height and age."""
-    
+
     def __init__(self, name: str) -> None:
         """Initialize a SecurePlant instance.
-        
+
         Args:
             name (str): The name of the plant (will be capitalized).
         """
@@ -16,7 +16,7 @@ class SecurePlant:
 
     def set_height(self, value: int) -> None:
         """Set the plant's height with validation.
-        
+
         Args:
             value (int): The height value to set in centimeters.
                         Must be non-negative.
@@ -31,7 +31,7 @@ class SecurePlant:
 
     def set_age(self, value: int) -> None:
         """Set the plant's age with validation.
-        
+
         Args:
             value (int): The age value to set in days.
                         Must be non-negative.
@@ -46,7 +46,7 @@ class SecurePlant:
 
     def get_height(self) -> int:
         """Get the plant's height.
-        
+
         Returns:
             int: The height of the plant in centimeters.
         """
@@ -54,7 +54,7 @@ class SecurePlant:
 
     def get_age(self) -> int:
         """Get the plant's age.
-        
+
         Returns:
             int: The age of the plant in days.
         """
