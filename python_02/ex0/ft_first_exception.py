@@ -2,7 +2,7 @@ def check_temperature(temp_str: str) -> str:
     """Validates temperature input for agricultural systems."""
     try:
         temp = int(temp_str)
-    except:
+    except ValueError:
         return f"Error: '{temp_str}' is not a valid number"
     if temp < 0:
         return f"Error: {temp}°C is too cold for plants (min 0°C)"
