@@ -13,12 +13,14 @@ class GardenError(Exception):
 
 class PlantError(GardenError):
     """Exception raised when a plant has issues."""
+
     def __init__(self, name: str = 'tomato') -> None:
         super().__init__(f"The {name.capitalize()} plant is wilting!")
 
 
 class WaterError(GardenError):
     """Exception raised when water tank is low."""
+
     def __init__(self) -> None:
         super().__init__("Not enough water in the tank!")
 

@@ -20,6 +20,7 @@ class SunlightHoursError(GardenError):
 
 class Plant:
     """Represents a plant with name, water level, and sunlight requirements."""
+
     def __init__(self, plant_name: str, water_level: int,
                  sunlight_hours: int) -> None:
         self.plant_name = plant_name
@@ -29,6 +30,7 @@ class Plant:
 
 class GardenManager:
     """Manages a collection of plants with watering and health monitoring."""
+
     def __init__(self, water_in_tank: int = 0) -> None:
         self.water_in_tank = water_in_tank
 
