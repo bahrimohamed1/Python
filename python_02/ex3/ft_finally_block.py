@@ -1,17 +1,10 @@
-class InvalidName(Exception):
-    pass
-
-
-def water_plants(plant_list) -> None:
+def water_plants(plant_list: list) -> None:
     print("Opening watering system")
     try:
         for plant in plant_list:
-            if not isinstance(plant, str):
-                raise InvalidName(f"Cannot water {plant} - invalid plant!")
-            else:
-                print("Watering", plant)
-    except InvalidName as e:
-        print("Error:", e)
+            print("Watering " + plant)
+    except TypeError:
+        print(f"Error: Cannot water {plant} - invalid plant!")
     finally:
         print("Closing watering system (cleanup)")
 
@@ -26,13 +19,13 @@ def test_watering_system() -> None:
     water_plants(plants)
     print("Watering completed succefully!")
     print("\nTesting with error...")
-    plants = [
+    bad_plants = [
         'tomato',
-        None,
+        True,
         'lettuce',
         'carrots'
     ]
-    water_plants(plants)
+    water_plants(bad_plants)
     print("\nCleanup always happens, even with errors!")
 
 
