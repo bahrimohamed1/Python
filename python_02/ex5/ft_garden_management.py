@@ -33,11 +33,9 @@ class GardenManager:
 
     def __init__(self, water_in_tank: int = 0) -> None:
         self.water_in_tank = water_in_tank
+        self.plants = []
 
-    plants = []
-
-    @classmethod
-    def add_plant(cls, plant: Plant) -> None:
+    def add_plant(self, plant: Plant) -> None:
         """Adds a plant to the garden after validation."""
         try:
             if not plant.plant_name:
@@ -45,31 +43,25 @@ class GardenManager:
         except InvalidName as e:
             print("Error adding plant:", e)
         else:
-            cls.plants.append(plant)
+            self.plants.append(plant)
             print(f"Added {plant.plant_name} successfully")
 
-    @classmethod
-    def water_plants(cls) -> None:
+    def water_plants(self) -> None:
         """Waters all plants in the garden with cleanup handling."""
         print("Opening watering system")
         try:
-            for plant in cls.plants:
-                if not plant.plant_name:
-                    raise TypeError(
-                        f"Cannot water {plant.plant_name} - invalid plant!")
-                else:
-                    print(f"Watering {plant.plant_name} - success")
-                    plant.water_level += 1
+            for plant in self.plants:
+                print(f"Watering {plant.plant_name} - success")
+                plant.water_level += 1
         except TypeError as e:
             print("Error watering plant:", e)
         finally:
             print("Cleaning watering system (cleanup)")
 
-    @classmethod
-    def check_health(cls) -> None:
+    def check_health(self) -> None:
         """Checks health of all plants and reports issues."""
         print("\nChecking plant health...")
-        for plant in cls.plants:
+        for plant in self.plants:
             try:
                 if plant.water_level > 10:
                     raise WaterLevelError(
