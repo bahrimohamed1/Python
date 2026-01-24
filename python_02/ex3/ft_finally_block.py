@@ -17,7 +17,7 @@ def test_watering_system() -> None:
         'carrots',
     ]
     water_plants(plants)
-    print("Watering completed succefully!")
+    print("Watering completed successfully!")
     print("\nTesting with error...")
     bad_plants = [
         'tomato',

@@ -28,7 +28,7 @@ def test_error_types() -> None:
     print("=== Garden Error Types Demo ===")
     print("\nTesting ValueError...")
     garden_operations('hello')
-    print("\nTesting ZerodevisionError...")
+    print("\nTesting ZeroDivisionError...")
     garden_operations('0')
     print("\nTesting FileNotFoundError...")
     garden_operations('1')
