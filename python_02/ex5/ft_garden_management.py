@@ -53,8 +53,6 @@ class GardenManager:
             for plant in self.plants:
                 print(f"Watering {plant.plant_name} - success")
                 plant.water_level += 1
-        except TypeError as e:
-            print("Error watering plant:", e)
         finally:
             print("Cleaning watering system (cleanup)")
 
