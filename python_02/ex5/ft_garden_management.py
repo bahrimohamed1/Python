@@ -1,20 +1,25 @@
 class GardenError(Exception):
+    """Base exception class for garden-related errors."""
     pass
 
 
 class InvalidName(GardenError):
+    """Exception raised when plant name is invalid."""
     pass
 
 
 class WaterLevelError(GardenError):
+    """Exception raised when water level is out of range."""
     pass
 
 
 class SunlightHoursError(GardenError):
+    """Exception raised when sunlight hours are out of range."""
     pass
 
 
 class Plant:
+    """Represents a plant with name, water level, and sunlight requirements."""
     def __init__(self, plant_name: str, water_level: int,
                  sunlight_hours: int) -> None:
         self.plant_name = plant_name
@@ -23,6 +28,7 @@ class Plant:
 
 
 class GardenManager:
+    """Manages a collection of plants with watering and health monitoring."""
     def __init__(self, water_in_tank: int = 0) -> None:
         self.water_in_tank = water_in_tank
 
@@ -30,6 +36,7 @@ class GardenManager:
 
     @classmethod
     def add_plant(cls, plant: Plant) -> None:
+        """Adds a plant to the garden after validation."""
         try:
             if not plant.plant_name:
                 raise InvalidName("Plant name cannot be empty!")
@@ -41,6 +48,7 @@ class GardenManager:
 
     @classmethod
     def water_plants(cls) -> None:
+        """Waters all plants in the garden with cleanup handling."""
         print("Opening watering system")
         try:
             for plant in cls.plants:
@@ -57,6 +65,7 @@ class GardenManager:
 
     @classmethod
     def check_health(cls) -> None:
+        """Checks health of all plants and reports issues."""
         print("\nChecking plant health...")
         for plant in cls.plants:
             try:
@@ -84,6 +93,7 @@ class GardenManager:
                     f" sun: {plant.sunlight_hours})")
 
     def error_recovery(self):
+        """Demonstrates error recovery with tank water check."""
         try:
             if self.water_in_tank < 25:
                 raise GardenError("Not enough water in tank")

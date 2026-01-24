@@ -1,4 +1,5 @@
 def garden_operations(test_str) -> None:
+    """Demonstrates different error types with exception handling."""
     if test_str == 'key':
         try:
             test_dict = {}
@@ -25,6 +26,7 @@ def garden_operations(test_str) -> None:
 
 
 def test_error_types() -> None:
+    """Tests various error types and their handling."""
     print("=== Garden Error Types Demo ===")
     print("\nTesting ValueError...")
     garden_operations('hello')

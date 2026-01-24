@@ -1,6 +1,8 @@
 class GardenError(Exception):
+    """Base exception class for garden-related errors."""
     @classmethod
     def raise_all_errors(cls) -> None:
+        """Raises all subclass errors for testing."""
         errors = cls.__subclasses__()
         for error in errors:
             try:
@@ -10,16 +12,19 @@ class GardenError(Exception):
 
 
 class PlantError(GardenError):
+    """Exception raised when a plant has issues."""
     def __init__(self, name: str = 'tomato') -> None:
         super().__init__(f"The {name.capitalize()} plant is wilting!")
 
 
 class WaterError(GardenError):
+    """Exception raised when water tank is low."""
     def __init__(self) -> None:
         super().__init__("Not enough water in the tank!")
 
 
 def garden_operations(option: str) -> None:
+    """Demonstrates custom exception handling."""
     if option == 'plant':
         try:
             raise PlantError("tomato")
@@ -38,6 +43,7 @@ def garden_operations(option: str) -> None:
 
 
 def test_errors() -> None:
+    """Tests custom garden error types."""
     print("=== Custom Garden Errors Demo ===")
 
     print("\nTesting PlantError...")
