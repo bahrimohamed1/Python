@@ -10,7 +10,7 @@ class GardenError(Exception):
 
 
 class PlantError(GardenError):
-    def __init__(self, name: str = 'toamto') -> None:
+    def __init__(self, name: str = 'tomato') -> None:
         super().__init__(f"The {name.capitalize()} plant is wilting!")
 
 
@@ -38,7 +38,7 @@ def garden_operations(option: str) -> None:
 
 
 def test_errors() -> None:
-    print("=== Cuatom Garden Errors Demo ===")
+    print("=== Custom Garden Errors Demo ===")
 
     print("\nTesting PlantError...")
     garden_operations('plant')
