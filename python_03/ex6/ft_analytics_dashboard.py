@@ -9,7 +9,7 @@ players = [
             "total_score": 2300
         },
         "achievements": {
-            'first_kill', 'level_10', 'treasure_hunter', 'speed_demon'
+            'first_kill', 'level_10', 'treasure_hunter', 'speed_demon', 'boss_slayer'
         }
     },
     {
@@ -22,7 +22,7 @@ players = [
             "total_score": 1800
         },
         "achievements": {
-            'first_kill', 'level_10', 'boss_slayer', 'collector'
+            'first_kill', 'boss_slayer', 'collector'
         }
     },
     {
@@ -31,12 +31,12 @@ players = [
         "is_active": True,
         "data": {
             "level": 44,
-            "achievements_count": 7,
+            "achievements_count": 6,
             "total_score": 2150
         },
         "achievements": {
             'level_10', 'treasure_hunter', 'boss_slayer',
-            'speed_demon', 'perfectionist'
+            'speed_demon', 'perfectionist', 'first_kill'
         }
     },
     {
@@ -96,7 +96,7 @@ all_players_scores: dict = {
 average_score: float = sum(all_players_scores.values()
                            ) / len(all_players_scores)
 
-print("=== Game Aanalytics Dashboard ===\n")
+print("=== Game Analytics Dashboard ===\n")
 print("=== List Comprehension Examples ===")
 print(f"High scores (>2000): {high_scores}")
 print(f"Scores doubled: {scores_doubled}")
