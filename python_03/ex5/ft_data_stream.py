@@ -595,7 +595,7 @@ treasure_events: int = 0
 level_up_events: int = 0
 
 print("=== Game Data Stream Processor ===\n")
-print(f"Proccessing {len(players_data)} game events...\n")
+print(f"Processing {len(players_data)} game events...\n")
 for i, player in enumerate(players, 1):
     if player['data']['level'] >= 10:
         count += 1
@@ -622,7 +622,7 @@ for i, player in enumerate(players, 1):
     else:
         print("Invalid data")
 
-print("\n=== Atream Analytics ===")
+print("\n=== Stream Analytics ===")
 print(f"Total events processed: {i}")
 print(f"High-level players (10+): {count}")
 print(f"Treasure events: {treasure_events}")

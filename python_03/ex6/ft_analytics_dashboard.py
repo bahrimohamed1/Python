@@ -5,7 +5,7 @@ players = [
         "is_active": True,
         "data": {
             "level": 41,
-            "achievements_count": 5,
+            "achievements_count": 4,
             "total_score": 2300
         },
         "achievements": {
@@ -96,7 +96,7 @@ all_players_scores: dict = {
 average_score: float = sum(all_players_scores.values()
                            ) / len(all_players_scores)
 
-print("=== Game Aanalytics Dashboard ===\n")
+print("=== Game Analytics Dashboard ===\n")
 print("=== List Comprehension Examples ===")
 print(f"High scores (>2000): {high_scores}")
 print(f"Scores doubled: {scores_doubled}")

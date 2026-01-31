@@ -1,3 +1,6 @@
+import math
+
+
 class Plant:
     """Base class representing a plant with basic attributes."""
 
@@ -78,7 +81,7 @@ class Tree(Plant):
             int: The area of shade in square meters.
         """
         height_meters = self.height / 100
-        area = 3.14 * (height_meters ** 2)
+        area = math.pi * (height_meters ** 2)
         return int(area)
 
     def get_info(self) -> str:
