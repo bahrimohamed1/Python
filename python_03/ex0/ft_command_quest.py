@@ -11,5 +11,5 @@ else:
     print("Arguments received:", len(args) - 1)
     for i, arg in enumerate(args[1:], 1):
         print(f"Argument {i}: {arg}")
-    
+
 print("Total arguments:", len(args))

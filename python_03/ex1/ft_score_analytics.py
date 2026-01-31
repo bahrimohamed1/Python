@@ -10,7 +10,7 @@ for arg in sys.argv[1:]:
     try:
         args.append(int(arg))
     except ValueError:
-        print(arg,"is not a valid score!")
+        print(arg, "is not a valid score!")
 if len(args) == 0:
     print("No valid arguments to process!")
     exit()
