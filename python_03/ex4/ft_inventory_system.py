@@ -23,15 +23,15 @@ inventory = {
 
 def items_transaction(source: dict,
                       destination: dict,
-                      item: str, ammount: int) -> None:
+                      item: str, amount: int) -> None:
 
     value_of_item = inventory['catalog'][item]['value']
-    source['items'][item] -= ammount
-    source['total_value'] -= value_of_item * ammount
-    source['item_count'] -= ammount
-    destination['items'][item] = ammount
-    destination['total_value'] += value_of_item * ammount
-    destination['item_count'] += ammount
+    source['items'][item] -= amount
+    source['total_value'] -= value_of_item * amount
+    source['item_count'] -= amount
+    destination['items'][item] = amount
+    destination['total_value'] += value_of_item * amount
+    destination['item_count'] += amount
     print("Transaction successful!")
 
 
@@ -71,10 +71,10 @@ else:
 
 if alice_item_count > bob_item_count:
     player_with_most_items = 'alice'
-    most_items = inventory['players']['alice']['total_value']
+    most_items = inventory['players']['alice']['item_count']
 else:
     player_with_most_items = 'bob'
-    most_items = inventory['players']['bob']['total_value']
+    most_items = inventory['players']['bob']['item_count']
 print(
     f"Most valuable player: {most_valuable_player} "
     f"({most_valuable_inventory} gold)")
