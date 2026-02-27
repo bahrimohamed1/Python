@@ -5,7 +5,7 @@ players = [
         "is_active": True,
         "data": {
             "level": 41,
-            "achievements_count": 5,
+            "achievements_count": 4,
             "total_score": 2300
         },
         "achievements": {
