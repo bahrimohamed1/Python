@@ -5,9 +5,9 @@ if len(sys.argv) == 2:
     print("=== Game Coordinate System ===\n")
     x, y, z = sys.argv[1].split(',')
     try:
-        position: tuple = (int(x), int(y), int(z))
+        position: tuple[int, int, int] = (int(x), int(y), int(z))
         x1, y1, z1 = position
-        test_position: tuple = (0, 0, 0)
+        test_position: tuple[int, int, int] = (0, 0, 0)
         x2, y2, z2 = test_position
         print(f'Parsing coordinates: "{sys.argv[1]}"')
         print("Parsed position:", position)
@@ -20,3 +20,4 @@ if len(sys.argv) == 2:
         print("Parsing invalid coordinates:", sys.argv[1])
         print("Error parsing coordinates:", e)
         print(f"Error details - Type: {type(e).__name__}, Args: {e.args}")
+        sys.exit(1)
