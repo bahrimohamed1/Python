@@ -629,7 +629,7 @@ print(f"Treasure events: {treasure_events}")
 print(f"Level-up events: {level_up_events}\n")
 
 print("=== Generator Demonstration ===")
-print("Fibonacci sequence first (10): ", end="")
+print("Fibonacci sequence (first 10): ", end="")
 print(*fib_numbers, sep=", ")
 print("Prime numbers (first 5): ", end="")
 print(*prime_numbers, sep=", ")

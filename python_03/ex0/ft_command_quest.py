@@ -1,7 +1,7 @@
 import sys
 
 print("=== Command Quest ===")
-args: list = sys.argv
+args: list[str] = sys.argv
 
 if len(args) == 1:
     print("No arguments provided!")

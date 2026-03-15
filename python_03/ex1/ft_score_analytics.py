@@ -6,16 +6,20 @@ if len(sys.argv) == 1:
     print("No scores provided. Usage: "
           "python3 ft_score_analytics.py <score1> <score2> ...")
     sys.exit(1)
+
 args: list[int] = []
+
 for arg in sys.argv[1:]:
     try:
         args.append(int(arg))
     except ValueError:
         print(arg, "is not a valid score!")
         sys.exit(1)
+
 if len(args) == 0:
     print("No valid arguments to process!")
     exit()
+
 print("Scores processed:", args)
 print("Total players:", len(args))
 print("Total score:", sum(args))

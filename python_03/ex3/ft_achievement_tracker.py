@@ -1,26 +1,33 @@
-alice_achievement: set = {'first_kill',
-                          'level_10', 'treasure_hunter', 'speed_demon'}
-bob_achievement: set = {'first_kill', 'level_10', 'boss_slayer', 'collector'}
-charlie_achievement: set = {'level_10', 'treasure_hunter', 'boss_slayer',
-                            'speed_demon', 'perfectionist'}
+alice_achievements: set[str] = {'first_kill',
+                                'level_10', 'treasure_hunter', 'speed_demon'}
+bob_achievements: set[str] = {'first_kill',
+                              'level_10', 'boss_slayer', 'collector'}
+charlie_achievements: set[str] = {'level_10', 'treasure_hunter', 'boss_slayer',
+                                  'speed_demon', 'perfectionist'}
 
-unique_achievements = alice_achievement | bob_achievement | charlie_achievement
-common_achievements = alice_achievement & bob_achievement & charlie_achievement
+all_achievements: set[str] = alice_achievements | bob_achievements \
+    | charlie_achievements
+common_achievements: set[str] = alice_achievements \
+    & bob_achievements & charlie_achievements
 
-alice_only: set = alice_achievement - (bob_achievement | charlie_achievement)
-bob_only: set = bob_achievement - (alice_achievement | charlie_achievement)
-charlie_only: set = charlie_achievement - (alice_achievement | bob_achievement)
-rare_achievements: set = alice_only | bob_only | charlie_only
+alice_unique: set[str] = alice_achievements - \
+    (bob_achievements | charlie_achievements)
+bob_unique: set[str] = bob_achievements - \
+    (alice_achievements | charlie_achievements)
+charlie_unique: set[str] = charlie_achievements - \
+    (alice_achievements | bob_achievements)
+
+rare_achievements: set[str] = alice_unique | bob_unique | charlie_unique
 
 print("=== Achievement Tracker System ===\n")
-print(f"Player alice achievements: {alice_achievement}")
-print(f"Player bob achievements: {bob_achievement}")
-print(f"Player charlie achievements: {charlie_achievement}")
+print(f"Player alice achievements: {alice_achievements}")
+print(f"Player bob achievements: {bob_achievements}")
+print(f"Player charlie achievements: {charlie_achievements}")
 print("\n=== Achievement Analytics ===")
-print(f"All unique achievements: {unique_achievements}")
-print("Total unique achievements:", len(unique_achievements))
-print("\nCommon to all players:", common_achievements)
-print("Rare achievements (1 player):", rare_achievements)
-print("\nAlice vs Bob common:", alice_achievement & bob_achievement)
-print("Alice unique:", alice_achievement - bob_achievement)
-print("Bob unique:", bob_achievement - alice_achievement)
+print(f"All unique achievements: {all_achievements}")
+print(f"Total unique achievements: {len(all_achievements)}")
+print(f"\nCommon to all players: {common_achievements}")
+print(f"Rare achievements (1 player): {rare_achievements}")
+print(f"\nAlice vs Bob common: {alice_achievements & bob_achievements}")
+print(f"Alice unique: {alice_achievements - bob_achievements}")
+print(f"Bob unique: {bob_achievements - alice_achievements}")
