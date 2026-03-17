@@ -1,14 +1,16 @@
 try:
     file = open("ancient_fragment.txt", 'r')
-    content = file.read()
+    content: str = file.read()
 
     print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===\n")
-    print("Accessing Storage Vault: ancient\\_fragment.txt")
+    print("Accessing Storage Vault: ancient_fragment.txt")
     print("Connection established...\n")
     print("RECOVERED DATA:")
     print(content)
-    print("\nData recovery complete. Storage unit disconnected.")
+    print()
 
     file.close()
+    print("Data recovery complete. Storage unit disconnected.")
+
 except FileNotFoundError:
-    print(" ERROR: Storage vault not found")
+    print("ERROR: Storage vault not found")
