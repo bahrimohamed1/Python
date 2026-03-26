@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, List
 
 
 class DataProcessor(ABC):
@@ -27,6 +27,9 @@ class NumericProcessor(DataProcessor):
             return "Data provided of wrong type. Expected int!"
 
     def validate(self, data: Any) -> bool:
+        if not data:
+            return False
+
         for i in data:
             if not isinstance(i, int) and not isinstance(i, float):
                 return False
@@ -38,7 +41,7 @@ class TextProcessor(DataProcessor):
     def process(self, data: Any) -> str:
         try:
             len1: int = len(data)
-            words: list[str] = data.split()
+            words: List[str] = data.split()
             return f"Processed text: {len1} characters, {len(words)} words"
 
         except (ValueError, TypeError):
@@ -54,20 +57,21 @@ class LogProcessor(DataProcessor):
             if ':' not in data:
                 raise TypeError
             level, message = data.split(':', 1)
-            level = level.upper()
+            level: str = level.upper()
+            message: str = message.strip()
             if level == 'ERROR':
                 output_level = 'ALERT'
             else:
                 output_level = level
             return f"[{output_level}] {level} level detected: {message}"
-        
+
         except (ValueError, TypeError):
             return "Data provided of wrong format: 'LEVEL: MESSAGE'"
-        
+
     def validate(self, data: Any) -> bool:
         if not isinstance(data, str) or ':' not in data:
             return False
-        
+
         return True
 
 
@@ -77,7 +81,7 @@ if __name__ == '__main__':
 
     print("Initializing Numeric Processor...")
     numeric = NumericProcessor()
-    nums: list[int] = [1, 2, 3, 4, ]
+    nums: List[int] = [1, 2, 3, 4, ]
     print(f"Processing data: {nums}")
     print("Validation: ", end="")
     print("Numeric data verified" if numeric.validate(nums)
@@ -93,7 +97,7 @@ if __name__ == '__main__':
     print("Text data verified" if text.validate(sample)
           else "[ERROR] EXPECTED DATA OF TYPE STRING")
     print(text.format_output(text.process(sample)))
-    
+
     print()
     print("Initializing Log Processor...")
     log = LogProcessor()
@@ -103,3 +107,16 @@ if __name__ == '__main__':
     print("Log entry verified" if log.validate(message)
           else "[ERROR] EXPECTED DATA OF FORMAT 'LEVEL: MESSAGE'")
     print(log.format_output(log.process(message)))
+
+    print()
+    print("=== Polymorphic Processing Demo ===")
+    print("Processing multiple data types through same interface...")
+    print("Result 1: ", end="")
+    print(numeric.process([1, 2, 3]))
+    print("Result 2: ", end="")
+    print(text.process("Hello world"))
+    print("Result 3: ", end="")
+    print(log.process("info: System ready"))
+
+    print()
+    print("Foundation systems online. Nexus ready for advanced streams.")
