@@ -32,16 +32,16 @@ except FileNotFoundError:
     print("RESPONSE: Archive not found in storage matrix")
     print("STATUS: Crisis handled, system stable")
 
-print()
+# print()
 
-try:
-    print("CRISIS ALERT: Attempting access to 'system_lockdown'...")
-    with open("/dev/null", 'r') as f:
-            pass
-    raise ValueError("Simulated system anomaly")
-except Exception as e:
-        print(f"RESPONSE: System anomaly - {e}")
-        print("STATUS: Crisis handled, failover protocols engaged")
+# try:
+#     print("CRISIS ALERT: Attempting access to 'system_lockdown'...")
+#     with open("/dev/null", 'r') as f:
+#             pass
+#     raise ValueError("Simulated system anomaly")
+# except Exception as e:
+#         print(f"RESPONSE: System anomaly - {e}")
+#         print("STATUS: Crisis handled, failover protocols engaged")
 
 print()
 print("All crisis scenarios handled successfully. Archives secure.")

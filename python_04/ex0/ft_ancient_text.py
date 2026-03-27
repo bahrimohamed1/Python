@@ -13,4 +13,4 @@ try:
     print("Data recovery complete. Storage unit disconnected.")
 
 except FileNotFoundError:
-    print("ERROR: Storage vault not found")
+    print("ERROR: Storage vault not found. Run data generator first")
