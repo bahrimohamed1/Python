@@ -23,6 +23,9 @@ def parse_inventory(args: list[str]) -> dict[str, int]:
 
 def main() -> None:
     inventory: dict[str, int] = parse_inventory(sys.argv[1:])
+    if not inventory:
+        print("No valid items provided!")
+        sys.exit(1)
 
     print("=== Inventory System Analysis ===")
     total_items: int = 0

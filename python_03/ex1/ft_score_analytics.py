@@ -18,7 +18,7 @@ for arg in sys.argv[1:]:
 
 if len(args) == 0:
     print("No valid arguments to process!")
-    exit()
+    sys.exit(1)
 
 print("Scores processed:", args)
 print("Total players:", len(args))

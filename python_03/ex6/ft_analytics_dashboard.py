@@ -22,7 +22,7 @@ players: list[dict] = [
 
 print("=== Game Analytics Dashboard ===")
 
-print("\n=== list Comprehension Examples ===")
+print("\n=== List Comprehension Examples ===")
 high_scorers: list[str] = [p["name"] for p in players if p["score"] > 2000]
 print(f"High scorers (>2000): {high_scorers}")
 
