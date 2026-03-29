@@ -31,7 +31,7 @@ if __name__ == '__main__':
         print(f"alchemy.create_air(): {alchemy.create_air()}")
     except AttributeError:
         print("alchemy.create_air(): AttributeError - not exposed")
-        
+
     print()
     print("Package metadata:")
     print(f"Version: {alchemy.__version__}")
