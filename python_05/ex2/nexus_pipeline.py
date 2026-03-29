@@ -192,7 +192,7 @@ def main() -> None:
             print("Error")
 
     print("\nChain result: 100 records processed through 3-stage pipeline")
-    print(f"Performance: 95% efficiency, "
+    print("Performance: 95% efficiency, "
           "0.2s total processing time")
 
     print("\n=== Error Recovery Test ===")
