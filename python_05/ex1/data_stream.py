@@ -145,7 +145,7 @@ class EventStream(DataStream):
                     errors_count += 1
 
             return f"Event analysis: {len(data_batch)} events" +\
-                ", {errors_count} error detected" if \
+                f", {errors_count} error detected" if \
                 errors_count <= 1 else "errors detected"
 
         except (ValueError, TypeError):

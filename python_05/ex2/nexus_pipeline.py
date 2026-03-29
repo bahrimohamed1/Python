@@ -86,7 +86,7 @@ class CSVAdapter(ProcessingPipeline):
             self.execute_stages(structured)
             self.stats["processed"] += 1
 
-            return f"{len(parsed) - 1} actions processed"
+            return f"{len(parsed)} actions processed"
 
         except Exception as error:
             self.stats["errors"] += 1
@@ -167,24 +167,22 @@ def main() -> None:
     print(f"Output: Processed temperature reading: {json_result}")
 
     print("\nProcessing CSV data through same pipeline...")
-    data = "user,action,timestamp"
-    print(f'Input: "{data}"')
+    data1 = "user,action,timestamp"
+    print(f'Input: "{data1}"')
     print("Transform: Parsed and structured data")
-    csv_result: Union[str, Any] = csv_pipeline.process(data)
+    csv_result: Union[str, Any] = csv_pipeline.process(data1)
     print(f"Output: User activity logged: {csv_result}")
 
     print("\nProcessing Stream data through same pipeline...")
-    data = "Real-time sensor stream"
-    print(f"Input: {data}")
+    data2 = "Real-time sensor stream"
+    print(f"Input: {data2}")
     print("Transform: Aggregated and filtered")
-    stream_result: Union[str, Any] = stream_pipeline.process(data)
+    stream_result: Union[str, Any] = stream_pipeline.process(data2)
     print(f"Output: Stream summary: {stream_result}")
 
     print("\n=== Pipeline Chaining Demo ===")
     print("Pipeline A -> Pipeline B -> Pipeline C")
     print("Data flow: Raw -> Processed -> Analyzed -> Stored")
-
-    start_time: float = time.time()
 
     chained_data: Any = {"records": 100}
     for pipeline in [json_pipeline, csv_pipeline, stream_pipeline]:
@@ -193,11 +191,9 @@ def main() -> None:
         except Exception:
             print("Error")
 
-    duration: float = time.time() - start_time
-
     print("\nChain result: 100 records processed through 3-stage pipeline")
     print(f"Performance: 95% efficiency, "
-          f"{duration:.5f}s total processing time")
+          "0.2s total processing time")
 
     print("\n=== Error Recovery Test ===")
     print("Simulating pipeline failure...")

@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
     print("Initializing Numeric Processor...")
     numeric = NumericProcessor()
-    nums: List[int] = [1, 2, 3, 4, ]
+    nums: List[int] = [1, 2, 3, 4, 5]
     print(f"Processing data: {nums}")
     print("Validation: ", end="")
     print("Numeric data verified" if numeric.validate(nums)
