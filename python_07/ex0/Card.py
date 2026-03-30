@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Dict
 
 
 class Card(ABC):
@@ -9,7 +8,7 @@ class Card(ABC):
         self.rarity = rarity
 
     @abstractmethod
-    def play(slef, game_stats: dict) -> dict:
+    def play(slef, game_state: dict) -> dict:
         pass
 
     def get_card_info(self) -> dict:
