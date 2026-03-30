@@ -43,7 +43,7 @@ class Deck:
             elif isinstance(card, ArtifactCard):
                 artifacts += 1
 
-        avg_cost = total_cost / total_cards if total_cards > 0 else 0.0
+        avg_cost: float = round(total_cost / total_cards, 2)
 
         return {
             "total_cards": total_cards,
