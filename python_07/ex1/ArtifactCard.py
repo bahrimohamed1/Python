@@ -12,9 +12,9 @@ class ArtifactCard(Card):
         game_state.update({
             'card_played': self.name,
             'mana_used': self.cost,
-            'effect': {self.effect}
+            'effect': f"Permanent: {self.effect}"
         })
-        
+
         return game_state
 
     def activate_ability(self) -> dict:
