@@ -6,7 +6,6 @@ matplotlib.use("Agg")
 from matplotlib import pyplot
 
 
-
 def load_module(module_name: str) -> Tuple[Any, str | None]:
     try:
         module = import_module(module_name)
@@ -31,16 +30,16 @@ def main() -> None:
     }
 
     modules = {}
-    for dependencie, message in dependencies.items():
-        module, version = load_module(dependencie)
+    for dependency, message in dependencies.items():
+        module, version = load_module(dependency)
         if version and module:
-            print(f"[OK] {dependencie} ({version}) - {message}")
-            modules[dependencie] = module
+            print(f"[OK] {dependency} ({version}) - {message}")
+            modules[dependency] = module
         else:
-            if dependencie == 'requests':
-                print(f"[KO] Missing optional dependencies: {dependencie}")
+            if dependency == 'requests':
+                print(f"[KO] Missing optional dependencies: {dependency}")
             else:
-                print(f"[KO] MISSING REQUIRED DEPENDENCY: {dependencie}")
+                print(f"[KO] MISSING REQUIRED DEPENDENCY: {dependency}")
                 print("Install them with one of the following methods:")
                 print("pip install -r requirements.txt")
                 print("poetry install")
@@ -49,7 +48,7 @@ def main() -> None:
     print()
     pd = modules['pandas']
     np = modules['numpy']
-    cycle = np.arange(1, 1001)
+    cycle = np.arange(1, 4)
     df = pd.DataFrame({
         'cycle': cycle,
         'power_level': [100, 200, 300]
