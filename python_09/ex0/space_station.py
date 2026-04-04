@@ -24,7 +24,7 @@ def main() -> None:
         last_maintenance=datetime(2026, 4, 4),
         # Pydantic can also parse:
         # last_maintenance="2026-04-04T00:00:00"
-        is_operational=False
+        is_operational=True
     )
 
     print("Space Station Data Validation")
