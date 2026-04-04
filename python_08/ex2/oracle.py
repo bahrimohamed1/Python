@@ -1,3 +1,6 @@
+"""Load environment configuration and report whether
+the Matrix is correctly wired."""
+
 import os
 import sys
 
@@ -12,10 +15,13 @@ except ImportError:
 
 
 def env_exists() -> bool:
+    """Return True when a local .env file is present."""
     return os.path.exists(".env")
 
 
 def main() -> None:
+    """Load environment variables, validate required settings,
+    and print diagnostics."""
     try:
         load_dotenv()
 
@@ -32,7 +38,8 @@ def main() -> None:
 
         elif matrix_mode.lower() not in ["development", "production"]:
             print(
-                "Configuration error: MATRIX_MODE must be 'development' or 'production'")
+                "Configuration error: MATRIX_MODE must be "
+                "'development' or 'production'")
             sys.exit(1)
 
         if not database_url:
@@ -64,7 +71,7 @@ def main() -> None:
         else:
             database_url_message = "Connected to remote instance"
         print(f"Database: {database_url_message}")
-        print(f"API Access: Authenticated")
+        print("API Access: Authenticated")
         print(f"Log Level: {log_level}")
         if zio_endpoint.startswith(('http://', 'https://')):
             zio_endpoint_message = 'Online'

@@ -1,7 +1,12 @@
+"""Report whether the current Python interpreter
+is running inside a virtual environment."""
+
 import sys
 import os
 
+
 def main() -> None:
+    """Print the current environment status and setup instructions."""
     if sys.prefix == sys.base_prefix:
         print()
         print("MATRIX STATUS: You're still plugged in")
@@ -27,19 +32,20 @@ def main() -> None:
         print()
         print("MATRIX STATUS: Welcome to the construct")
         print()
-        
+
         print(f"Current Python: {sys.executable}")
         venv_name = os.path.basename(sys.prefix)
         print(f"Virtual Environment: {venv_name}")
         print(f"Environment Path: {sys.prefix}")
         print()
-        
+
         print("SUCCESS: You're in an isolated environment!")
         print("Safe to install packages without affecting the global system.")
         print()
-        
+
         print("Package installation path:")
         print(sys.path[-1])
- 
+
+
 if __name__ == '__main__':
     main()
