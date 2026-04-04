@@ -46,8 +46,9 @@ def main() -> None:
             else:
                 print(f"[KO] MISSING REQUIRED DEPENDENCY: {dependency}")
                 print("Install them with one of the following methods:")
-                # pip installs packages directly from requirements.txt, while poetry manages
-                # dependencies plus a lockfile/virtual environment for reproducible installs.
+                # pip installs packages directly from requirements.txt,
+                # while poetry manages dependencies plus a lockfile/
+                # virtual environment for reproducible installs.
                 print("pip install -r requirements.txt")
                 print("poetry install")
                 sys.exit(1)
