@@ -58,11 +58,11 @@ def main() -> None:
     print("Valid contact report:")
 
     print(f"ID: {contact_report.contact_id}")
-    print(f"Type: {contact_report.contact_type}")
+    print(f"Type: {contact_report.contact_type.value}")
     print(f"Location: {contact_report.location}")
     print(f"Signal: {contact_report.signal_strength}/10")
     print(f"Duration: {contact_report.duration_minutes} minutes")
-    print(f"Witnesses: {contact_report.contact_id}")
+    print(f"Witnesses: {contact_report.witness_count}")
     print(f"Message: '{contact_report.message_received}'")
 
     print()
