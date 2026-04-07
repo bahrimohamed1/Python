@@ -2,7 +2,7 @@ from collections.abc import Callable
 from typing import Any
 
 
-def mage_counter() -> Callable:
+def mage_counter() -> Callable[[], int]:
     count = 0
 
     def counter() -> int:
@@ -13,7 +13,7 @@ def mage_counter() -> Callable:
     return counter
 
 
-def spell_accumulator(initial_power: int) -> Callable:
+def spell_accumulator(initial_power: int) -> Callable[[int], int]:
     total_power = initial_power
 
     def accumulate(amount: int) -> int:
@@ -24,14 +24,14 @@ def spell_accumulator(initial_power: int) -> Callable:
     return accumulate
 
 
-def enchantment_factory(enchantment_type: str) -> Callable:
+def enchantment_factory(enchantment_type: str) -> Callable[[str], str]:
     def enchanter(item_name: str) -> str:
         return f"{enchantment_type} {item_name}"
 
     return enchanter
 
 
-def memory_vault() -> dict[str, Callable]:
+def memory_vault() -> dict[str, Callable[..., Any]]:
     memory = {}
 
     def store(key: str, value: Any) -> None:
@@ -70,8 +70,8 @@ def main() -> None:
     print("Testing memory vault...")
 
     vault_a = memory_vault()
-    store = vault_a.get('store')
-    recall = vault_a.get('recall')
+    store = vault_a['store']
+    recall = vault_a['recall']
 
     print("Store 'secret' = 42")
     store('secret', 42)
