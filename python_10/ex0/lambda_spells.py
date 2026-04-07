@@ -14,7 +14,8 @@ def mage_stats(mages: list[dict]) -> dict:
     result = {
         'max_power': max(mages, key=lambda x: x['power'])['power'],
         'min_power': min(mages, key=lambda x: x['power'])['power'],
-        'avg_power': round(sum(map(lambda x: x['power'], mages)) / len(mages), 2)
+        'avg_power': round(
+            sum(map(lambda x: x['power'], mages)) / len(mages), 2)
     }
     return result
 
