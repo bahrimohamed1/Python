@@ -8,8 +8,7 @@ def check_temperature(temp_str: str) -> str:
         return f"Error: {temp}°C is too cold for plants (min 0°C)"
     if temp > 40:
         return f"Error: {temp}°C is too hot for plants (max 40°C)"
-    else:
-        return f"Temperature {temp}°C is perfect for plants!"
+    return f"Temperature {temp}°C is perfect for plants!"
 
 
 def test_temperature_input() -> None:
